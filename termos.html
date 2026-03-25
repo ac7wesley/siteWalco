@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     .legal-page { padding: 8rem 0 5rem; background: var(--white); }
     .legal-page h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:2.5rem; color:var(--navy); margin-bottom:0.5rem; }
@@ -27,24 +28,34 @@
 </head>
 <body>
 
-  <nav class="navbar scrolled" id="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo">WALCO<span class="logo-w"></span></a>
-      <div class="nav-links">
-        <a href="index.html#inicio">Início</a>
-        <a href="index.html#servicos">Serviços</a>
-        <a href="index.html#sobre">Sobre</a>
-        <a href="index.html#potencial">Potencial</a>
-        <a href="index.html#contato">Contato</a>
-      </div>
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo" id="nav-logo-link">
+        <span class="logo-w">W</span><span class="logo-rest">ALCO</span>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html#hero" id="nav-home">Início</a>
+        <a href="index.html#servicos" id="nav-services">Serviços</a>
+        <a href="index.html#sobre" id="nav-about">Sobre</a>
+        <a href="index.html#potencial" id="nav-potential">Potencial</a>
+        <a href="index.html#contato" id="nav-contact">Contato</a>
+      </nav>
       <div class="nav-actions">
-        <a href="index.html#contato" class="btn-yellow">PEÇA UM ORÇAMENTO</a>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <a href="index.html#contato" class="btn-quote" id="btn-get-quote">PEÇA UM ORÇAMENTO</a>
+        <button class="hamburger" id="hamburger-btn" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-  </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html#hero" id="m-nav-home">Início</a>
+      <a href="index.html#servicos" id="m-nav-services">Serviços</a>
+      <a href="index.html#sobre" id="m-nav-about">Sobre</a>
+      <a href="index.html#potencial" id="m-nav-potential">Potencial</a>
+      <a href="index.html#contato" id="m-nav-contact">Contato</a>
+    </div>
+  </header>
 
   <section class="legal-page">
     <div class="container" style="max-width:860px;">
