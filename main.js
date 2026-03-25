@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   /* ── 2. HAMBURGER MENU ── */
-  const hamburger  = document.getElementById('hamburger-btn');
+  const hamburger = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
@@ -45,42 +45,58 @@ document.addEventListener('DOMContentLoaded', () => {
   revealTargets.forEach(el => observer.observe(el));
 
   /* ── 4. POTENCIAL SLIDER ── */
-  const slider         = document.getElementById('consumo-slider');
-  const consumoValue   = document.getElementById('consumo-value');
-  const valPotencia    = document.getElementById('val-potencia');
-  const valEconomia    = document.getElementById('val-economia');
-  const valCO2         = document.getElementById('val-co2');
-  const valPayback     = document.getElementById('val-payback');
-  const fillPotencia   = document.getElementById('fill-potencia');
-  const fillEconomia   = document.getElementById('fill-economia');
-  const fillCO2        = document.getElementById('fill-co2');
-  const fillPayback    = document.getElementById('fill-payback');
+  const slider = document.getElementById('consumo-slider');
+  const consumoValue = document.getElementById('consumo-value');
+  const valPotencia = document.getElementById('val-potencia');
+  const valEconomia = document.getElementById('val-economia');
+  const valCO2 = document.getElementById('val-co2');
+  const valPayback = document.getElementById('val-payback');
+  const fillPotencia = document.getElementById('fill-potencia');
+  const fillEconomia = document.getElementById('fill-economia');
+  const fillCO2 = document.getElementById('fill-co2');
+  const fillPayback = document.getElementById('fill-payback');
 
   const updateSlider = () => {
     const kWh        = parseInt(slider.value);
-    const maxKWh     = 5000;
+    const maxKWh     = 500000; // 500 mil kWh
+    const precoKWh   = 1.126; // valor atual do kWh em R$
+    const margem     = 0.75;  // 75% (margem de erro de 25%)
+    const valorUtil  = precoKWh * margem; // R$ 0,8445/kWh
 
-    // Simulated calculations
+    // Alerta de contato para consumo acima de 1 MWh
+    const contatoMsg = document.getElementById('slider-contact-msg');
+    if (contatoMsg) {
+      contatoMsg.style.display = kWh >= maxKWh ? 'block' : 'none';
+    }
+
+    // Cálculos de estimativa
     const kWp        = (kWh / 150).toFixed(1);
-    const economia   = Math.round(kWh * 0.75 * 12);  // R$0.75/kWh avg
+    const economia   = Math.round(kWh * valorUtil * 12);  // economia anual
     const co2        = (kWh * 0.04 * 12 / 1000).toFixed(1); // 40g CO2/kWh
-    const costKWp    = 3800; // avg installed cost per kWp
+    const costKWp    = 3800; // custo médio instalado por kWp
     const systemCost = kWp * costKWp;
-    const payback    = Math.round(systemCost / economia * 12);
+    const payback    = economia > 0 ? Math.round(systemCost / economia * 12) : 0;
 
     consumoValue.textContent = kWh.toLocaleString('pt-BR') + ' kWh';
-    valPotencia.textContent  = kWp + ' kWp';
-    valEconomia.textContent  = 'R$ ' + economia.toLocaleString('pt-BR');
-    valCO2.textContent       = co2 + ' t CO₂';
-    valPayback.textContent   = '~' + payback + ' meses';
+    if (kWh >= maxKWh) {
+      valPotencia.textContent  = 'Sob Consulta';
+      valEconomia.textContent  = 'Sob Consulta';
+      valCO2.textContent       = 'Sob Consulta';
+      valPayback.textContent   = 'Sob Consulta';
+    } else {
+      valPotencia.textContent  = kWp + ' kWp';
+      valEconomia.textContent  = 'R$ ' + economia.toLocaleString('pt-BR');
+      valCO2.textContent       = co2 + ' t CO₂';
+      valPayback.textContent   = '~' + payback + ' meses';
+    }
 
     const pct = ((kWh - 100) / (maxKWh - 100)) * 100;
     fillPotencia.style.width = Math.max(3, pct) + '%';
     fillEconomia.style.width = Math.max(3, pct * 0.9) + '%';
     fillCO2.style.width      = Math.max(3, pct * 0.8) + '%';
-    fillPayback.style.width  = Math.max(10, 85 - pct * 0.5) + '%'; // payback shrinks with scale
+    fillPayback.style.width  = Math.max(10, 85 - pct * 0.5) + '%';
 
-    // Dynamic slider gradient
+    // Gradiente dinâmico do slider
     slider.style.background = `linear-gradient(to right, #ffcc00 0%, #ffcc00 ${pct}%, rgba(255,255,255,0.15) ${pct}%, rgba(255,255,255,0.15) 100%)`;
   };
 
@@ -93,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.handleFormSubmit = (e) => {
     e.preventDefault();
     const success = document.getElementById('form-success');
-    const btn     = document.getElementById('btn-submit-form');
+    const btn = document.getElementById('btn-submit-form');
     btn.textContent = 'Enviando...';
     btn.style.opacity = '0.7';
     setTimeout(() => {
@@ -105,14 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1200);
   };
 
-  /* ── 6. NEWSLETTER FORM ── */
-  window.handleNewsletter = (e) => {
-    e.preventDefault();
-    const success = document.getElementById('newsletter-success');
-    success.classList.add('visible');
-    e.target.reset();
-    setTimeout(() => success.classList.remove('visible'), 4000);
-  };
+  /* ── 6. (Removido – newsletter) ── */
 
   /* ── 7. SMOOTH ACTIVE NAV ── */
   const sections = document.querySelectorAll('section[id]');
