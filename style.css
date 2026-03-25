@@ -70,12 +70,19 @@ ul {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--yellow);
+  color: var(--navy);
   margin-bottom: 1rem;
+  /*--yellow 
+  text-shadow:
+    -0.5px -0.5px 0 rgba(10, 17, 40, 0.8),
+    0.5px -0.5px 0 rgba(10, 17, 40, 0.8),
+    -0.5px 0.5px 0 rgba(10, 17, 40, 0.8),
+    0.5px 0.5px 0 rgba(10, 17, 40, 0.8);
+    */
 }
 
 .section-eyebrow.light {
-  color: var(--yellow);
+  color: var(--navy);
 }
 
 /* ─── BUTTONS ─── */
@@ -548,62 +555,49 @@ ul {
   font-weight: 300;
 }
 
-.services-grid {
+.services-accordion {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+  border-top: 1px solid rgba(10, 17, 40, 0.1);
+  width: 100%;
+}
+
+.accordion-item {
+  grid-column: span 1;
+  border-bottom: 1px solid rgba(10, 17, 40, 0.1);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.accordion-item.active {
+  grid-column: span 2;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.accordion-item:hover .accordion-header,
+.accordion-item.active .accordion-header {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.acc-title-wrap {
+  display: flex;
+  align-items: center;
   gap: 1.5rem;
 }
 
-.service-card {
-  background: #f0f4ff;
-  border-radius: var(--radius-md);
-  padding: 2rem 1.6rem;
-  cursor: pointer;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(10, 17, 40, 0.06);
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--yellow);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: var(--transition);
-}
-
-.service-card:hover {
-  background: var(--navy);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(10, 17, 40, 0.15);
-}
-
-.service-card:hover .card-icon svg {
-  stroke: var(--yellow);
-}
-
-.service-card:hover .card-title {
-  color: var(--white);
-}
-
-.service-card:hover .card-desc {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.service-card:hover::before {
-  transform: scaleX(1);
-}
-
 .card-icon {
-  width: 44px;
-  height: 44px;
-  margin-bottom: 1.4rem;
+  width: 32px;
+  height: 32px;
 }
 
 .card-icon svg {
@@ -616,18 +610,54 @@ ul {
 .card-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: var(--navy);
-  margin-bottom: 0.6rem;
   transition: var(--transition);
 }
 
-.card-desc {
-  font-size: 0.82rem;
-  color: #5a6a7e;
-  line-height: 1.65;
+.acc-icon {
+  font-size: 1.8rem;
   font-weight: 300;
-  transition: var(--transition);
+  color: var(--navy);
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.accordion-item.active .acc-icon {
+  transform: rotate(45deg);
+  color: var(--yellow);
+}
+
+.accordion-content {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 3.5rem;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 150px;
+  opacity: 1;
+  padding-bottom: 1.8rem;
+  padding-left: 4.3rem;
+  /* Extra indent due to hover header padding */
+}
+
+.card-desc {
+  font-size: 1rem;
+  color: #0b0f14;
+  line-height: 1.7;
+  font-weight: 400;
+  max-width: 700px;
+}
+
+.accordion-item:hover .card-icon svg,
+.accordion-item.active .card-icon svg {
+  stroke: var(--yellow);
+}
+
+.accordion-item:hover .card-title,
+.accordion-item.active .card-title {
+  color: var(--yellow2);
 }
 
 /* ══════════════════════════
@@ -1312,8 +1342,8 @@ ul {
    RESPONSIVE
 ══════════════════════════ */
 @media (max-width: 1100px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .services-accordion {
+    column-gap: 2rem;
   }
 
   .potencial-results {
@@ -1369,8 +1399,13 @@ ul {
 }
 
 @media (max-width: 600px) {
-  .services-grid {
+  .services-accordion {
     grid-template-columns: 1fr;
+  }
+
+  .accordion-item,
+  .accordion-item.active {
+    grid-column: span 1;
   }
 
   .potencial-results {

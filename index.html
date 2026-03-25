@@ -111,118 +111,160 @@
         </div>
       </div>
 
-      <div class="services-grid" id="services-grid">
-        <!-- Card 1 -->
-        <div class="service-card" id="card-engenharia">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M3 9h18M3 15h18M9 3v18M15 3v18" />
-            </svg>
+      <div class="services-accordion" id="services-grid">
+        <!-- Item 1 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9h18M3 15h18M9 3v18M15 3v18" />
+                </svg>
+              </div>
+              <h3 class="card-title">Projetos de Engenharia</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Projetos de Engenharia</h3>
-          <p class="card-desc">Planejamento e detalhamento técnico de infraestruturas críticas e sustentáveis.</p>
+          <div class="accordion-content">
+            <p class="card-desc">Planejamento e detalhamento técnico de infraestruturas críticas e sustentáveis.</p>
+          </div>
         </div>
-        <!-- Card 2 -->
-        <div class="service-card" id="card-vistorias">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
-            </svg>
+        <!-- Item 2 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v6M8 11h6" />
+                </svg>
+              </div>
+              <h3 class="card-title">Vistorias Técnicas</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Vistorias Técnicas</h3>
-          <p class="card-desc">Inspeções rigorosas para garantir a segurança, conformidade normativa e viabilidade de
-            projetos.</p>
+          <div class="accordion-content">
+            <p class="card-desc">Inspeções rigorosas para garantir a segurança, conformidade normativa e viabilidade de projetos.</p>
+          </div>
         </div>
-        <!-- Card 3 -->
-        <div class="service-card" id="card-consumo">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-            </svg>
+        <!-- Item 3 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <h3 class="card-title">Análise de Consumo</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Análise de Consumo</h3>
-          <p class="card-desc">Estudos aprofundados para identificação e correção de gargalos e desperdícios
-            energéticos.</p>
+          <div class="accordion-content">
+            <p class="card-desc">Estudos aprofundados para identificação e correção de gargalos e desperdícios energéticos.</p>
+          </div>
         </div>
-        <!-- Card 4 -->
-        <div class="service-card" id="card-contrato">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="16" y1="13" x2="8" y2="13" />
-              <line x1="16" y1="17" x2="8" y2="17" />
-              <polyline points="10 9 9 9 8 9" />
-            </svg>
+        <!-- Item 4 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </div>
+              <h3 class="card-title">Análise de Contrato</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Análise de Contrato</h3>
-          <p class="card-desc">Consultoria regulatória focada na otimização de faturas e redução de custos tarifários.
-          </p>
+          <div class="accordion-content">
+            <p class="card-desc">Consultoria regulatória focada na otimização de faturas e redução de custos tarifários.</p>
+          </div>
         </div>
-        <!-- Card 5 -->
-        <div class="service-card" id="card-eletricos">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-            </svg>
+        <!-- Item 5 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <h3 class="card-title">Serviços Elétricos</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Serviços Elétricos</h3>
-          <p class="card-desc">Manutenção corretiva e preventiva de alta e baixa tensão, garantindo precisão
-            operacional.</p>
+          <div class="accordion-content">
+            <p class="card-desc">Manutenção corretiva e preventiva de alta e baixa tensão, garantindo precisão operacional.</p>
+          </div>
         </div>
-        <!-- Card 6 -->
-        <div class="service-card" id="card-bess">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <rect x="2" y="7" width="20" height="14" rx="2" />
-              <path d="M16 3H8l-2 4h12l-2-4z" />
-              <line x1="12" y1="12" x2="12" y2="16" />
-              <line x1="10" y1="14" x2="14" y2="14" />
-            </svg>
+        <!-- Item 6 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 3H8l-2 4h12l-2-4z" />
+                  <line x1="12" y1="12" x2="12" y2="16" />
+                  <line x1="10" y1="14" x2="14" y2="14" />
+                </svg>
+              </div>
+              <h3 class="card-title">Armazenamento BESS</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Armazenamento BESS</h3>
-          <p class="card-desc">Soluções inteligentes de armazenamento de energia para independência energética e
-            segurança.</p>
+          <div class="accordion-content">
+            <p class="card-desc">Soluções inteligentes de armazenamento de energia para independência energética e segurança.</p>
+          </div>
         </div>
-        <!-- Card 7 -->
-        <div class="service-card" id="card-solar">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5" />
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
+        <!-- Item 7 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="5" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+              </div>
+              <h3 class="card-title">Energia Solar</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Energia Solar</h3>
-          <p class="card-desc">Projetos fotovoltaicos de alta eficiência para residências e indústrias, com foco no
-            futuro.</p>
+          <div class="accordion-content">
+            <p class="card-desc">Projetos fotovoltaicos de alta eficiência para residências e indústrias, com foco no futuro.</p>
+          </div>
         </div>
-        <!-- Card 8 -->
-        <div class="service-card" id="card-fullservice">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <polyline points="9 12 11 14 15 10" />
-            </svg>
+        <!-- Item 8 -->
+        <div class="accordion-item" onclick="this.classList.toggle('active')">
+          <div class="accordion-header">
+            <div class="acc-title-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <polyline points="9 12 11 14 15 10" />
+                </svg>
+              </div>
+              <h3 class="card-title">Execução Full Service</h3>
+            </div>
+            <span class="acc-icon">+</span>
           </div>
-          <h3 class="card-title">Execução Full Service</h3>
-          <p class="card-desc">Gestão completa do projeto, da concepção técnica à entrega final 'turnkey'.</p>
+          <div class="accordion-content">
+            <p class="card-desc">Gestão completa do projeto, da concepção técnica à entrega final 'turnkey'.</p>
+          </div>
         </div>
       </div>
     </div>
