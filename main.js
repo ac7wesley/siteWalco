@@ -78,19 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const payback    = economia > 0 ? Math.round(systemCost / economia * 12) : 0;
 
     consumoValue.textContent = kWh.toLocaleString('pt-BR') + ' kWh';
-    if (kWh >= maxKWh) {
-      valPotencia.textContent  = 'Sob Consulta';
-      valEconomia.textContent  = 'Sob Consulta';
-      valCO2.textContent       = 'Sob Consulta';
-      valPayback.textContent   = 'Sob Consulta';
-    } else {
-      valPotencia.textContent  = kWp + ' kWp';
-      valEconomia.textContent  = 'R$ ' + economia.toLocaleString('pt-BR');
-      valCO2.textContent       = co2 + ' t CO₂';
-      valPayback.textContent   = '~' + payback + ' meses';
-    }
+    valPotencia.textContent  = kWp + ' kWp';
+    valEconomia.textContent  = 'R$ ' + economia.toLocaleString('pt-BR');
+    valCO2.textContent       = co2 + ' t CO₂';
+    valPayback.textContent   = '~' + payback + ' meses';
 
-    const pct = ((kWh - 100) / (maxKWh - 100)) * 100;
+    const pct = ((kWh - 500) / (maxKWh - 500)) * 100;
     fillPotencia.style.width = Math.max(3, pct) + '%';
     fillEconomia.style.width = Math.max(3, pct * 0.9) + '%';
     fillCO2.style.width      = Math.max(3, pct * 0.8) + '%';
